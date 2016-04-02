@@ -1,6 +1,8 @@
-require "minitest/autorun"
-require "minitest/pride"
-require_relative "lib/insertion_sort"
+
+gem 'minitest'
+require 'minitest/autorun'
+require 'minitest/pride'
+require_relative '../lib/insertion_sort'
 
 class InsertionSortTest < Minitest::Test
 
@@ -10,28 +12,53 @@ class InsertionSortTest < Minitest::Test
     assert_equal InsertionSort, sorter.class
   end
 
-
-  def test_initialize_creates_empty_sorted_array
+  def test_sort_empty_array
     sorter = InsertionSort.new
+    sorter.sort([""])
 
-    assert_equal nil, sorted
+    expected = [""]
+    assert_equal expected, sorter.sort([""])
   end
 
-
-  def test_unsorted_array_contains_expected_values
-    sorter = InsertionSort.new
-    sorter.sort(["d", "b", "a", "c"])
-
-    expected = ["d", "b", "a", "c"]
-    assert_equal expected, unsorted
-  end
-
-  def test_if_empty_conditional_works
+  def test_sort_works_for_1_element
     sorter = InsertionSort.new
     sorter.sort(["c"])
 
     expected = ["c"]
-    assert_equal expected, sorted
+    assert_equal expected, sorter.sort(["c"])
   end
+
+  def test_sort_1_element
+    sorter = InsertionSort.new
+    sorter.sort(["c"])
+
+    expected = ["c"]
+    assert_equal expected, sorter.sort(["c"])
+  end
+
+  def test_sort_2_elements
+    sorter = InsertionSort.new
+    sorter.sort(["h", "c"])
+
+    expected = ["c", "h"]
+    assert_equal expected, sorter.sort(["h","c"])
+  end
+
+  def test_sort_3_elements
+    sorter = InsertionSort.new
+    sorter.sort(["h", "c", "m"])
+
+    expected = ["c", "h", "m"]
+    assert_equal expected, sorter.sort(["h","c", "m"])
+  end
+
+  def test_sort_4_elements
+    sorter = InsertionSort.new
+    sorter.sort(["h", "c", "m", "f"])
+
+    expected = ["c", "f", "h", "m"]
+    assert_equal expected, sorter.sort(["h", "c", "m", "f"])
+  end
+
 
 end
