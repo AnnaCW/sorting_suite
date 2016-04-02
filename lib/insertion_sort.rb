@@ -38,7 +38,7 @@ class InsertionSort
 
   def move_element(sorted_array, index, unsorted_element, unsorted_array)
     sorted_array.insert(index, unsorted_element)
-    unsorted_array.drop(1)
+    # unsorted_array.drop(1)
   end
 
 end
