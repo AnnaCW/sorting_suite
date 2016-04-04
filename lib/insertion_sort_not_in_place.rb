@@ -12,11 +12,11 @@ class InsertionSortNotInPlace
         move_element(sorted_array, index, unsorted_element, unsorted_array)
         sort(unsorted_array, sorted_array, index)
 
-      elsif unsorted_element < sorted_array[index]
+      elsif unsorted_element <= sorted_array[index]
         move_element(sorted_array, index, unsorted_element, unsorted_array)
         sort(unsorted_array, sorted_array, index)
 
-      elsif unsorted_element > sorted_array[index]
+      elsif unsorted_element >= sorted_array[index]
         check_right(unsorted_element, sorted_array, index+=1, unsorted_array)
         sort(unsorted_array, sorted_array, index)
       end
@@ -29,10 +29,10 @@ class InsertionSortNotInPlace
     if sorted_array[index].nil?
         move_element(sorted_array, index, unsorted_element, unsorted_array)
 
-    elsif unsorted_element < sorted_array[index]
+    elsif unsorted_element <= sorted_array[index]
         move_element(sorted_array, index, unsorted_element, unsorted_array)
 
-    elsif unsorted_element > sorted_array[index]
+    elsif unsorted_element >= sorted_array[index]
         check_right(unsorted_element, sorted_array, index+=1, unsorted_array)
     end
     sorted_array
