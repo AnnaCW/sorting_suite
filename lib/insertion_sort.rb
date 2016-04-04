@@ -11,10 +11,10 @@ class InsertionSort
       elsif sorted_array.empty?
         move_element(sorted_array, index, unsorted_element, unsorted_array)
 
-      elsif unsorted_element < sorted_array[index]
+      elsif unsorted_element <= sorted_array[index]
         move_element(sorted_array, index, unsorted_element, unsorted_array)
 
-      elsif unsorted_element > sorted_array[index]
+      elsif unsorted_element >= sorted_array[index]
         check_right(unsorted_element, sorted_array, index+=1, unsorted_array)
       end
 
@@ -27,10 +27,10 @@ class InsertionSort
     if sorted_array[index].nil?
         move_element(sorted_array, index, unsorted_element, unsorted_array)
 
-    elsif unsorted_element < sorted_array[index]
+    elsif unsorted_element <= sorted_array[index]
         move_element(sorted_array, index, unsorted_element, unsorted_array)
 
-    elsif unsorted_element > sorted_array[index]
+    elsif unsorted_element >= sorted_array[index]
         check_right(unsorted_element, sorted_array, index+=1, unsorted_array)
     end
     sorted_array
@@ -38,7 +38,6 @@ class InsertionSort
 
   def move_element(sorted_array, index, unsorted_element, unsorted_array)
     sorted_array.insert(index, unsorted_element)
-    # unsorted_array.drop(1)
   end
 
 end
