@@ -31,11 +31,11 @@ class MergeSort
         sorted_array << right_sorted[0]
         right_sorted.delete_at(0)
 
-      elsif left_sorted[0] < right_sorted[0]
+      elsif left_sorted[0] <= right_sorted[0]
         sorted_array << left_sorted[0]
         left_sorted.delete_at(0)
 
-      elsif right_sorted[0] < left_sorted[0]
+      elsif right_sorted[0] <= left_sorted[0]
         sorted_array << right_sorted[0]
         right_sorted.delete_at(0)
       end
@@ -44,5 +44,5 @@ class MergeSort
   end
 end
 
-sorter = MergeSort.new
-p sorter.sort([6, 5, 4, 3, 7, 9, 77, 66, 1, 0, 99, 64, 23])
+# sorter = MergeSort.new
+# p sorter.sort([6, 5, 4, 3, 7, 9, 77, 66, 1, 0, 99, 64, 23])
