@@ -52,7 +52,7 @@ class InsertionSortTest < Minitest::Test
     assert_equal expected, sorter.sort(["h", "c", "m", "f"])
   end
 
-  def test_large_array_of_numbers
+  def test_sort_large_array_of_numbers
     sorter = InsertionSort.new
     sorter.sort([4, 7, 3, 5, 9, 1, 67, 22])
 
@@ -60,7 +60,7 @@ class InsertionSortTest < Minitest::Test
     assert_equal expected, sorter.sort([4, 7, 3, 5, 9, 1, 67, 22])
   end
 
-  def test_of_numbers_with_zero
+  def test_sort_array_of_numbers_with_zero
     sorter = InsertionSort.new
     sorter.sort([4, 7, 3, 0, 9])
 
@@ -68,12 +68,20 @@ class InsertionSortTest < Minitest::Test
     assert_equal expected, sorter.sort([4, 7, 3, 0, 9])
   end
 
-  def test_of_numbers_with_negatives
+  def test_sort_array_of_numbers_with_negatives
     sorter = InsertionSort.new
     sorter.sort([4, 7, -2, 0, -4])
 
     expected = [-4, -2, 0, 4, 7]
     assert_equal expected, sorter.sort([4, 7, -2, 0, -4])
+  end
+
+  def test_sort_array_with_duplicates
+    sorter = InsertionSort.new
+    sorter.sort([4, 7, 4, 0, 7])
+
+    expected = [0, 4, 4, 7, 7]
+    assert_equal expected, sorter.sort([4, 7, 4, 0, 7])
   end
 
 
