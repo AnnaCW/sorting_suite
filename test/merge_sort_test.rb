@@ -43,5 +43,28 @@ class MergeSortTest < Minitest::Test
     assert_equal expected, sorter.sort(["c", "h", "a", "q", "p"])
   end
 
+  def test_sort_numbers_array
+    sorter = MergeSort.new
+    sorter.sort([1, 55, -1, 6, 5])
+
+    expected = [-1, 1, 5, 6, 55]
+    assert_equal expected, sorter.sort([1, 55, -1, 6, 5])
+  end
+
+  def test_sort_array_with_duplicates
+    sorter = MergeSort.new
+    sorter.sort([1, 55, -1, 6, 5, 6, 1])
+
+    expected = [-1, 1, 1, 5, 6, 6, 55]
+    assert_equal expected, sorter.sort([1, 55, -1, 6, 5, 6, 1])
+  end
+
+  def test_sort_unexpected_input_strings
+    sorter = MergeSort.new
+    sorter.sort(["what", "is", "up"])
+
+    expected = ["is", "up", "what"]
+    assert_equal expected, sorter.sort(["what", "is", "up"])
+  end
 
 end
