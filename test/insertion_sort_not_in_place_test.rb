@@ -75,5 +75,12 @@ class InsertionSortNotInPlaceTest < Minitest::Test
     assert_equal expected, sorter.sort([4, 7, -2, 0, -4])
   end
 
+  def test_sort_array_with_duplicates
+    sorter = InsertionSortNotInPlace.new
+    sorter.sort([4, 7, -2, 0, -4, -4, 4])
+
+    expected = [-4, -4, -2, 0, 4, 4, 7]
+    assert_equal expected, sorter.sort([4, 7, -2, 0, -4, -4, 4])
+  end
 
 end
