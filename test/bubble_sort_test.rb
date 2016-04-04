@@ -5,54 +5,43 @@ require_relative '../lib/bubble_sort'
 
 class BubbleSortTest < Minitest::Test
 
-  def test_initialize
-    sorter = BubbleSort.new
+  attr_reader :sorter
+  def setup
+    @sorter = BubbleSort.new
+  end
 
+  def test_it_initializes_the_sorter
     assert_equal BubbleSort, sorter.class
   end
 
-  def test_sort_empty_array
-    sorter = BubbleSort.new
-    sorter.sort([""])
-
-    expected = [""]
-    assert_equal expected, sorter.sort([""])
+  def test_it_sorts_an_empty_array
+    assert_equal [""], sorter.sort([""])
   end
 
-  def test_sort_1_element_array
-    sorter = BubbleSort.new
-    sorter.sort(["c"])
-
-    expected = ["c"]
-    assert_equal expected, sorter.sort(["c"])
+  def test_it_sorts_single_element_array_given_a_single_element_array
+    single_value_array = ["c"]
+    assert_equal single_value_array, sorter.sort(single_value_array)
   end
 
   def test_sort_3_element_array
-    sorter = BubbleSort.new
-    sorter.sort(["c", "h", "a"])
-
     expected = ["a", "c", "h"]
-    assert_equal expected, sorter.sort(["c", "h", "a"])
+    # a bit crowded in the args, but just as an example
+    assert_equal expected, sorter.sort(expected.shuffle)
   end
 
   def test_large_array_of_numbers
-    sorter = BubbleSort.new
-    sorter.sort([4, 7, 3, 5, 9, 1, 67, 22])
-
+    # better example, this ties the two args together
     expected = [1, 3, 4, 5, 7, 9, 22, 67]
-    assert_equal expected, sorter.sort([4, 7, 3, 5, 9, 1, 67, 22])
+    input = expected.shuffle
+    assert_equal expected, sorter.sort(input)
   end
 
   def test_array_of_numbers_with_zero
-    sorter = BubbleSort.new
-    sorter.sort([4, 7, 3, 0, 9])
-
     expected = [0, 3, 4, 7, 9]
     assert_equal expected, sorter.sort([4, 7, 3, 0, 9])
   end
 
   def test_array_of_numbers_with_negatives
-    sorter = BubbleSort.new
     sorter.sort([4, 7, -2, 0, -4])
 
     expected = [-4, -2, 0, 4, 7]
@@ -60,7 +49,6 @@ class BubbleSortTest < Minitest::Test
   end
 
   def test_array_of_numbers_with_duplicates
-    sorter = BubbleSort.new
     sorter.sort([4, 7, -2, 0, -4, -4, 4])
 
     expected = [-4, -4, -2, 0, 4, 4, 7]
@@ -68,13 +56,10 @@ class BubbleSortTest < Minitest::Test
   end
 
   def test_unexpected_strings
-    sorter = BubbleSort.new
     sorter.sort(["world", "hello"])
 
     expected = ["hello", "world"]
     assert_equal expected, sorter.sort(["world", "hello"])
   end
-
-
 
 end

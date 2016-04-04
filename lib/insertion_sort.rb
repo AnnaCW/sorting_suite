@@ -41,6 +41,3 @@ class InsertionSort
   end
 
 end
-
-sorter = InsertionSort.new
-p sorter.sort(["d", "b", "a", "e"])

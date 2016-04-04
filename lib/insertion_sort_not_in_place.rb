@@ -1,4 +1,3 @@
-
 class InsertionSortNotInPlace
 
   def sort(unsorted_array, sorted_array=[], index=0)
@@ -44,6 +43,3 @@ class InsertionSortNotInPlace
   end
 
 end
-
-# sorter = InsertionSortNotInPlace.new
-# p sorter.sort(["d", "b", "a", "e"])

@@ -84,5 +84,4 @@ class InsertionSortTest < Minitest::Test
     assert_equal expected, sorter.sort([4, 7, 4, 0, 7])
   end
 
-
 end

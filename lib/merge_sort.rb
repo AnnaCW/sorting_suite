@@ -13,6 +13,7 @@ class MergeSort
       left_sorted = sort(left)
       right_sorted = sort(right)
     end
+
     merge(left_sorted, right_sorted)
   end
 
@@ -24,8 +25,9 @@ class MergeSort
         break
 
       elsif right_sorted.empty?
-        sorted_array << left_sorted[0]
-        left_sorted.delete_at(0)
+        # ruby: shift --> removes the first element
+        sorted_array << left_sorted.shift
+        # left_sorted.delete_at(0)
 
       elsif left_sorted.empty?
         sorted_array << right_sorted[0]
@@ -43,6 +45,3 @@ class MergeSort
     sorted_array
   end
 end
-
-# sorter = MergeSort.new
-# p sorter.sort([6, 5, 4, 3, 7, 9, 77, 66, 1, 0, 99, 64, 23])
